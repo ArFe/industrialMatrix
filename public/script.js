@@ -5,7 +5,7 @@ socket.on('chat message', function(msg){
     console.log("Test = " + test)
     obj = JSON.parse(msg);
     let elem = document.querySelector("#led");
-    if(obj["reg1"] = 1)
+    if(obj["reg1"] == 1)
         elem.classList.add("red");
     else
         elem.classList.remove("red");
