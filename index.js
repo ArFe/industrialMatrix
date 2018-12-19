@@ -4,6 +4,7 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const path = require("path");
 var port = process.env.PORT || 3000;
+var net = require('net');
 
 app.use(express.static("./public/"));
 
@@ -17,8 +18,23 @@ app.get('/status', function(req, res){
 
 io.on('connection', function(socket){
   socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
     console.log(msg);
+    var client = new net.Socket();
+      client.connect(8844, '10.4.5.65', function() {
+        console.log('Connected');
+        client.write(msg);
+      });
+
+      client.on('data', function(data) {
+        console.log('Received: ' + data);
+        io.emit('chat message', data.toString());
+        client.destroy(); // kill client after server's response
+      });
+
+      client.on('close', function() {
+        console.log('Connection closed');
+      });
+
   });
 });
 
