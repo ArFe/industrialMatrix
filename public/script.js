@@ -39,7 +39,7 @@ socket.on('chat message', function(msg){
     ctx.fillStyle = "gray";
     ctx.fill();
 
-    ctx.font = "24px Arial";
+    ctx.font = "3em Arial";
     ctx.fillStyle = "black";
     ctx.textAlign = "left";
     ctx.fillText("Node " + obj["reg6"], 15, 45); 
