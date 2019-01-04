@@ -15,6 +15,10 @@ app.get('/status', function(req, res){
   res.sendFile(__dirname + '/status.html');
 });
 
+app.get('/sitesurvey', function(req, res){
+  res.sendFile(__dirname + '/sitesurvey.html');
+});
+
 io.on('connection', function(socket){
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
