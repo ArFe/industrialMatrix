@@ -58,7 +58,7 @@ FUNCTION writeData
 	if running = 1 and (TICKS - startTime) > 1500 then 
 		startTime = TICKS
 		PushNow = API(6)
-		PRINT "PushNow ", PushNow, "\n\r"
+		'PRINT "PushNow ", PushNow, "\n\r"
 	end if	
 
 end FUNCTION
@@ -67,15 +67,15 @@ FUNCTION enableSS
 
 	if run = 1 then 
 		siteSurveyCmd = 32 * 256 + node
+		running = 1
 	else 
 		siteSurveyCmd = 32 * 256 + 0	
+		running = 0
 	end if
 
 	WrErr	= SETREG(GW_IO15, siteSurveyCmd, GWSID, 0)
 
-	running = run
-
-	PRINT "Running = ", running, "\n\r"
+	'PRINT "Running = ", running, "\n\r"
 
 end FUNCTION
 
@@ -89,18 +89,15 @@ FUNCTION siteSurvey
 		RdData1	= GETREG(GW_IO7, GWSID, 0)
 		RdData2	= GETREG(GW_IO8, GWSID, 0)
 
-		PRINT "RdData1 = ", RdData1, "\n\r"
-		PRINT "RdData2 = ", RdData2, "\n\r"
-
 		green = RdData2 \ 256
 		yellow = RdData2 AND 255
 		red = RdData1 \ 256
 		missed = RdData1 AND 255
 
-		PRINT "green = ", green, "\n\r"
-		PRINT "yellow = ", yellow, "\n\r"
-		PRINT "red = ", red, "\n\r"
-		PRINT "missed = ", missed, "\n\r"
+		'PRINT "green = ", green, "\n\r"
+		'PRINT "yellow = ", yellow, "\n\r"
+		'PRINT "red = ", red, "\n\r"
+		'PRINT "missed = ", missed, "\n\r"
 	end if				 
 	
 
