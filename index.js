@@ -69,7 +69,7 @@ app.get("/push", function(req,res){
   console.log(req.query);
   let filter = JSON.stringify(req.query);
   //let filter = {"departmentName": req.params.value };
-  res.send("<html><head><title>HTTP Push Ack</title></head><body>id=" + req.query.id + "&amp" +  "reg5=0"  + "&ampreg6=2" + "</body></html>");
+  res.send("<html><head><title>HTTP Push Ack</title></head><body>id=" + req.query.id + "&" +  "reg6=2" + "</body></html>");
   io.emit('chat message', filter);
 
 });
