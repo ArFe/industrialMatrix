@@ -28,6 +28,7 @@ red 	= 0
 missed 	= 0
 run 	= 0
 node 	= 0
+lastNode= 0
 running	= 0
 
 siteSurveyCmd 	= 0
@@ -81,10 +82,12 @@ end FUNCTION
 
 FUNCTION siteSurvey
 
-	if run <> running then 
+	if run <> running OR lastNode <> node then 
 		enableSS
 	end if
 
+	lastNode = node
+	
 	if running then
 		RdData1	= GETREG(GW_IO7, GWSID, 0)
 		RdData2	= GETREG(GW_IO8, GWSID, 0)

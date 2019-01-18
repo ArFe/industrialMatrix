@@ -95,8 +95,10 @@ app.get("/push", function(req,res){
 
 // setup a POST 'route' to listen on /banner
 app.post("/push", function(req,res){
-  console.log(req.body);
-  io.emit('chat message', req.body);
+  console.log("POST body:" + req.body);
+  let obj = new DOMParser().parseFromString(req.body, "text/xml");
+  console.log("POST body: parsed " + JSON.stringify(obj));
+  io.emit('chat message', obj);
   res.send("<html><head><title>HTTP Push Ack</title></head><body>id=Ariel</body></html>");
 });
 
