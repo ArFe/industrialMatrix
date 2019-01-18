@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <configuration>
   <file_info>
-    <info filename="demo_cloud.xml" guid="f1cc2c4d-3ec8-411e-bbc7-8631d573a3af" software="DXMConfigurationTool v4" timestamp="1/18/2019 1:29:48 PM" version="4.0.3.0" os="Win32NT" osversion="Microsoft Windows NT 6.2.9200.0" device="DXM100" />
+    <info filename="demo_cloud.xml" guid="d8612686-c94e-4ac6-aec5-dd4b45a58d7f" software="DXMConfigurationTool v4" timestamp="1/18/2019 1:46:15 PM" version="4.0.3.0" os="Win32NT" osversion="Microsoft Windows NT 6.2.9200.0" device="DXM100" />
   </file_info>
   <local_regs>
     <reg cloudio="1" lcd="3" logfiles="8" num="1" perms="3" name="Green" />
@@ -165,7 +165,7 @@
   <http_push>
     <dns address="0.0.0.0" />
     <dns address="0.0.0.0" />
-    <push enabled="1" flags="16" id="Ariel" interval="00:01:00" port="443" debug="0" vendor="0" cert="*.bannercds.com" host="bannercanada.herokuapp.com" page="/push" />
+    <push enabled="1" flags="0" id="Ariel" interval="00:00:00" port="80" debug="0" vendor="0" host="bannercanada.herokuapp.com" page="/push" />
   </http_push>
   <fwall />
 </configuration>
