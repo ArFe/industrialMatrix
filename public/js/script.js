@@ -1,9 +1,26 @@
 const socket = io();
 let test = true; 
+let nodeNum;
+let dxmId;
+
+function stopSS(){
+    let node = document.querySelector("#node");
+    let id = document.querySelector(".id").id;
+    var socket = io();
+    socket.emit('chat message', {'dxmId': id, 'nodeNum': node.options[node.selectedIndex].value, 'siteSurvey': 0});
+    return false;
+}
+function startSS(){
+    let node = document.querySelector("#node");
+    let id = document.querySelector(".id").id;
+    var socket = io();
+    socket.emit('chat message', {'dxmId': id, 'nodeNum': node.options[node.selectedIndex].value, 'siteSurvey': 1});
+    return false;
+}
 socket.on('chat message', function(msg){
     console.log(msg);
     console.log("Test = " + test)
-    obj = JSON.parse(msg);
+    obj = JSON.parse(JSON.stringify(msg));
     let elem = document.querySelector("#led");
     if (elem != null) {
         if(obj["reg1"] == 1)
@@ -13,14 +30,22 @@ socket.on('chat message', function(msg){
     }
     test = !test;
 
-    elem = document.querySelector("#"+obj["id"]);
+    dxmId = obj["id"];
+    nodeNum = obj["reg6"];
+    elem = document.querySelector("#"+dxmId);
     if (elem != null) {
 
         var c = document.getElementById("myCanvas");
         var ctx = c.getContext("2d");
 
-        ctx.canvas.width  = window.innerWidth;
-        ctx.canvas.height = window.innerHeight;
+        c.style.position = 'fixed';
+        c.style.top= 0;
+        c.style.left= 0;
+        c.style.zIndex= -1;
+
+        ctx.canvas.width  = window.innerWidth-10;
+        ctx.canvas.height = window.innerHeight-10;
+
         
         ctx.beginPath();
         ctx.rect(10, window.innerHeight/8, window.innerWidth*(obj["reg1"]/100), window.innerHeight/9);
@@ -45,7 +70,7 @@ socket.on('chat message', function(msg){
         ctx.font = "4em Arial";
         ctx.fillStyle = "black";
         ctx.textAlign = "left";
-        ctx.fillText("Node " + obj["reg6"], 15, window.innerHeight/12); 
+        ctx.fillText("Node " + nodeNum, 15, window.innerHeight/12); 
         ctx.fillText("Excelent " + obj["reg1"] + "%", 15, 1*(window.innerHeight/8) + window.innerHeight/12); 
         ctx.fillText("Good " + obj["reg2"] + "%", 15, 2*(window.innerHeight/8) + window.innerHeight/12); 
         ctx.fillText("Marginal " + obj["reg3"] + "%", 15, 3*(window.innerHeight/8) + window.innerHeight/12); 

@@ -7,6 +7,11 @@ const exphbs = require('express-handlebars');
 
 var port = process.env.PORT || 3000;
 
+let SSrunning = false;
+let SScmd = false;
+let SSinfo = [];
+let cmd = "";
+
 app.use(express.static("./public/"));
 //app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', '.hbs');
@@ -61,6 +66,10 @@ io.on('connection', function(socket){
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
     console.log(msg);
+    if('dxmId' in msg){
+      SSinfo.push(msg);
+      console.log("yes, I have dxmId property");
+    }
   });
 });
 
@@ -69,7 +78,17 @@ app.get("/push", function(req,res){
   console.log(req.query);
   let filter = JSON.stringify(req.query);
   //let filter = {"departmentName": req.params.value };
-  res.send("<html><head><title>HTTP Push Ack</title></head><body>id=" + req.query.id + "&" +  "reg6=2" + "</body></html>");
+  if(SSinfo.length > 0){
+    for(let i = 0; i < SSinfo.length; i++){
+      if(SSinfo[i].dxmId == req.query.id){
+        cmd = "&reg5=" + SSinfo[i].siteSurvey + "&reg6=" + SSinfo[i].nodeNum
+        SSinfo.splice(i,1);
+      }
+    }
+  }
+  let response = "<html><head><title>HTTP Push Ack</title></head><body>id=" + req.query.id + cmd + "</body></html>";
+  cmd = "";
+  res.send(response);
   io.emit('chat message', filter);
 
 });

@@ -20,4 +20,21 @@ form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 
     background-color:red;
  }
 
+ #canvas {
+   position: fixed;
+   top: 0;
+   left: 0;
+ }
+
+ .button {
+  line-height: 300%;
+  width:10%;
+  float: right;
+  margin: 3%;
+}
+#node {
+  font-size: 2.5em;
+  float: right;
+  margin: 3%;
+}
 

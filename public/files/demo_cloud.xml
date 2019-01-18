@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <configuration>
   <file_info>
-    <info filename="demo_cloud.xml" guid="da73a663-c6cc-4045-9431-563b41c340ad" software="DXMConfigurationTool v3" timestamp="1/9/2019 2:22:35 PM" version="3.1.11.0" os="Win32NT" osversion="Microsoft Windows NT 6.2.9200.0" />
+    <info filename="demo_cloud.xml" guid="f1cc2c4d-3ec8-411e-bbc7-8631d573a3af" software="DXMConfigurationTool v4" timestamp="1/18/2019 1:29:48 PM" version="4.0.3.0" os="Win32NT" osversion="Microsoft Windows NT 6.2.9200.0" device="DXM100" />
   </file_info>
   <local_regs>
-    <reg cloudio="1" default="0" lcd="3" logfiles="8" mapEIP="0" num="1" scale_offset="0" scale_type="none" scale_using="0" timeout="0" unsigned="1" perms="3" units="None" numtype="None" name="Green" />
-    <reg cloudio="1" default="0" lcd="3" logfiles="8" mapEIP="0" num="2" scale_offset="0" scale_type="none" scale_using="0" timeout="0" unsigned="1" perms="3" units="None" numtype="None" name="Yellow" />
-    <reg cloudio="1" default="0" lcd="3" logfiles="8" mapEIP="0" num="3" scale_offset="0" scale_type="none" scale_using="0" timeout="0" unsigned="1" perms="3" units="None" numtype="None" name="Red" />
-    <reg cloudio="1" default="0" lcd="3" logfiles="8" mapEIP="0" num="4" scale_offset="0" scale_type="none" scale_using="0" timeout="0" unsigned="1" perms="3" units="None" numtype="None" name="Missed" />
-    <reg cloudio="1" default="0" lcd="3" logfiles="8" mapEIP="0" num="5" scale_offset="0" scale_type="none" scale_using="0" timeout="0" unsigned="1" perms="3" units="None" numtype="None" name="Run" />
-    <reg cloudio="1" default="0" lcd="3" logfiles="8" mapEIP="0" num="6" scale_offset="0" scale_type="none" scale_using="0" timeout="0" unsigned="1" perms="3" units="None" numtype="None" name="Node" />
-    <reg cloudio="1" default="0" lcd="3" logfiles="8" mapEIP="0" num="7" scale_offset="0" scale_type="none" scale_using="0" timeout="0" unsigned="1" perms="3" units="None" numtype="None" name="Running" />
+    <reg cloudio="1" lcd="3" logfiles="8" num="1" perms="3" name="Green" />
+    <reg cloudio="1" lcd="3" logfiles="8" num="2" perms="3" name="Yellow" />
+    <reg cloudio="1" lcd="3" logfiles="8" num="3" perms="3" name="Red" />
+    <reg cloudio="1" lcd="3" logfiles="8" num="4" perms="3" name="Missed" />
+    <reg cloudio="1" lcd="3" logfiles="8" num="5" perms="3" name="Run" />
+    <reg cloudio="1" lcd="3" logfiles="8" num="6" perms="3" name="Node" />
+    <reg cloudio="1" lcd="3" logfiles="8" num="7" perms="3" name="Running" />
   </local_regs>
   <cascade />
   <constant />
@@ -32,7 +32,7 @@
     <mode opt="1" state="0" />
   </master_mode>
   <rtu_device>
-    <dev baud="19200" commtype="485" data="8" parity="0" stop="1" rate="50" thisUnit="1" timeout="5.000" />
+    <dev baud="19200" commtype="485" data="8" parity="0" stop="1" rate="50" thisUnit="0" timeout="5.000" />
   </rtu_device>
   <rtu_server>
     <dev baud="19200" commtype="485" data="8" parity="0" stop="1" timeout="0" />
@@ -165,7 +165,7 @@
   <http_push>
     <dns address="0.0.0.0" />
     <dns address="0.0.0.0" />
-    <push enabled="1" flags="16" id="b9f368bf-f205-4be0-b602-3ecd09bf426c" interval="00:00:00" port="443" debug="0" vendor="0" cert="*.bannercds.com" host="bannercanada.herokuapp.com" page="/push" />
+    <push enabled="1" flags="16" id="Ariel" interval="00:01:00" port="443" debug="0" vendor="0" cert="*.bannercds.com" host="bannercanada.herokuapp.com" page="/push" />
   </http_push>
   <fwall />
 </configuration>
