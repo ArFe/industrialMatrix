@@ -97,7 +97,7 @@ app.get("/push", function(req,res){
 app.post("/push", function(req,res){
   console.log(req.body);
   io.emit('chat message', req.body);
-  res.send("<html><head><title>HTTP Push Ack</title></head><body>id=244b9fb1-7085-4877-8352-994f7b632b4f</body></html>");
+  res.send("<html><head><title>HTTP Push Ack</title></head><body>id=Ariel</body></html>");
 });
 
 
