@@ -26,16 +26,28 @@ form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 
    left: 0;
  }
 
- #node, .button {
-  padding: 0.1em 0.1em;
-  font-size: 3em;
-  float: left;
-  margin: 4vh 1vw 1vh;
-}
+ .containerdivNewLine { 
+   clear: both; 
+   float: left; 
+   display: block; 
+   position: relative; 
+  } 
+
+  #node, .button, #nodeDisp {
+    padding: 0.1em 0.1em;
+    font-size: 2.5em;
+    float: left;
+    margin: 3vh 1vw 1vh;
+    font-family: "Calibri Regular";
+  
+  }
+  #nodeDisp {
+   margin: 1vh 1vw 1vh; 
+ }
 
 @media (orientation:portrait) {
 
-  #node, .button {
+  #node, .button, label {
     font-size: 4.5em;
   }
 
