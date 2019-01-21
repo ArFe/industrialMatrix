@@ -33,4 +33,10 @@ form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 
   margin: 4vh 1vw 1vh;
 }
 
+@media (orientation:portrait) {
 
+  #node, .button {
+    font-size: 5em;
+  }
+
+}
