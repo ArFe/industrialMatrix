@@ -27,13 +27,14 @@ form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 
  }
 
  .button {
-  line-height: 300%;
+  height: 3.2em;
   font-size: 2.5em;
   width:10%;
   float: right;
   margin: 3%;
 }
 #node {
+  height: 3.2em;
   font-size: 2.5em;
   float: right;
   margin: 3%;
