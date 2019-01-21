@@ -27,11 +27,10 @@ form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 
  }
 
  #node, .button {
-  height: 4vw;
-  font-size: 3vw;
-  width:10%;
+  height: 8vh;
+  font-size: 4.5vw;
   float: right;
-  margin: 2% 1%;
+  margin: 5% 1%;
 }
 
 
