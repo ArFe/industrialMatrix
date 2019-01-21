@@ -39,18 +39,16 @@ socket.on('chat message', function(msg){
         elem = document.querySelector("#"+dxmId);
         console.log("elem = " + elem)
         if (elem != null) {
-
+            elem = document.querySelector("#nodeDisp");
+            elem.innerHTML = "Node " + nodeNum;
             var c = document.getElementById("myCanvas");
             var ctx = c.getContext("2d");
 
-            c.style.position = 'fixed';
-            c.style.top= 0;
-            c.style.left= 0;
             c.style.zIndex= -1;
 
             ctx.canvas.width  = window.innerWidth-10;
             ctx.canvas.height = window.innerHeight-10;
-            let top = window.innerHeight/6;
+            let top = window.innerHeight/20;
             let margin = top-window.innerHeight/22;
 
             
@@ -74,11 +72,9 @@ socket.on('chat message', function(msg){
             ctx.fillStyle = "gray";
             ctx.fill();
 
-            ctx.font = "8vh Arial";
+            ctx.font = "6vh Arial";
             ctx.fillStyle = "black";
             ctx.textAlign = "left";
-            ctx.fillText("Node " + nodeNum , 15, top/1.5); 
-            ctx.font = "6vh Arial";
             ctx.fillText("Excelent " + obj["reg1"] + "%", 15, 1*(window.innerHeight/8) + margin); 
             ctx.fillText("Good " + obj["reg2"] + "%", 15, 2*(window.innerHeight/8) + margin); 
             ctx.fillText("Marginal " + obj["reg3"] + "%", 15, 3*(window.innerHeight/8) + margin); 
