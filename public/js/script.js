@@ -50,7 +50,7 @@ socket.on('chat message', function(msg){
 
             ctx.canvas.width  = window.innerWidth-10;
             ctx.canvas.height = window.innerHeight-10;
-            let top = window.innerHeight/5;
+            let top = window.innerHeight/6;
             let margin = top-window.innerHeight/22;
 
             
@@ -77,7 +77,7 @@ socket.on('chat message', function(msg){
             ctx.font = "8vh Arial";
             ctx.fillStyle = "black";
             ctx.textAlign = "left";
-            ctx.fillText("Node " + nodeNum , 15, top/2); 
+            ctx.fillText("Node " + nodeNum , 15, top/1.5); 
             ctx.font = "6vh Arial";
             ctx.fillText("Excelent " + obj["reg1"] + "%", 15, 1*(window.innerHeight/8) + margin); 
             ctx.fillText("Good " + obj["reg2"] + "%", 15, 2*(window.innerHeight/8) + margin); 

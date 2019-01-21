@@ -26,17 +26,12 @@ form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 
    left: 0;
  }
 
- .button {
-  height: 10vh;
-  font-size: 5vh;
+ #node, .button {
+  height: 6vh;
+  font-size: 3vh;
   width:10%;
   float: right;
-  margin: 3%;
+  margin: 3% 1%;
 }
-#node {
-  height: 10vh;
-  font-size: 5vh;
-  float: right;
-  margin: 3%;
-}
+
 
