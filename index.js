@@ -3,12 +3,17 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const path = require("path");
+const bodyParser = require("body-parser");
 const exphbs = require('express-handlebars');
+require('body-parser-xml')(bodyParser);
+let xmlparser = require('express-xml-bodyparser');
 
-var port = process.env.PORT || 3000;
+let port = process.env.PORT || 80;
+//app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(bodyParser.json());
+//app.use(bodyParser.xml());
+//app.use(xmlparser());
 
-let SSrunning = false;
-let SScmd = false;
 let SSinfo = [];
 let cmd = "";
 
@@ -47,7 +52,38 @@ app.engine('.hbs', exphbs({
     }
  }));
 
-app.use(express.static("./public/"));
+function xmlBody2Obj(req, res, next) {
+
+  console.log("Escape!")
+
+  let data = '';
+  req.setEncoding('utf8');
+  req.on('data', function(chunk) {
+    data += chunk;
+  });
+  req.on('end', function() {
+    req.xmlBodyObj = xml2Obj(data.toString());
+    next();
+  });
+};
+
+function xml2Obj(xmlData) {
+  //console.log(xmlData);
+  xmlData = xmlData.replace(/\<httplog\>/g, "{");
+  xmlData = xmlData.replace(/<\/httplog\>/g, "}");
+  xmlData = xmlData.replace(/\>(.*)=(.*)\</g, ">{$1=$2}<");
+  xmlData = xmlData.replace(/\<(.*)\>(.*)\<\/(.*)\>/g, "\"$1\" : \"$2\",");
+  xmlData = xmlData.replace(/\}\"/g, "\"}");
+  xmlData = xmlData.replace(/\"\{/g, "{\"");
+  xmlData = xmlData.replace(/\=/g, "\" : \"");
+  xmlData = xmlData.replace(/\&/g, "\" , \"");
+  xmlData = xmlData.replace(/\r?\n|\r/g, " ");
+  xmlData = xmlData.replace(/\}, \}/g, "}}");
+  
+  //console.log(xmlData);
+
+  return JSON.parse(xmlData);
+};
 
 app.get('/', function(req, res){
   res.render("index");
@@ -66,7 +102,7 @@ io.on('connection', function(socket){
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
     console.log(msg);
-    if('dxmId' in msg){
+    if(msg instanceof Object && 'dxmId' in msg){
       SSinfo.push(msg);
       console.log("yes, I have dxmId property");
     }
@@ -75,7 +111,7 @@ io.on('connection', function(socket){
 
 // setup a GET 'route' to listen on /banner
 app.get("/push", function(req,res){
-  console.log(req.query);
+  //console.log(req.query);
   let filter = JSON.stringify(req.query);
   //let filter = {"departmentName": req.params.value };
   if(SSinfo.length > 0){
@@ -94,12 +130,14 @@ app.get("/push", function(req,res){
 });
 
 // setup a POST 'route' to listen on /banner
-app.post("/push", function(req,res){
-  console.log("POST body:" + req.body);
-  let obj = new DOMParser().parseFromString(req.body, "text/xml");
-  console.log("POST body: parsed " + JSON.stringify(obj));
-  io.emit('chat message', obj);
-  res.send("<html><head><title>HTTP Push Ack</title></head><body>id=Ariel</body></html>");
+app.post("/push", xmlBody2Obj, function(req,res){
+  console.log("POST body");
+  console.log(JSON.stringify(req.xmlBodyObj));
+  
+  let id = req.xmlBodyObj.id;
+  console.log("POST ID: parsed " + id);
+  io.emit('chat message', "Post id: " + id);
+  res.send("<html><head><title>HTTP Push Ack</title></head><body>id=" + id + "</body></html>");
 });
 
 

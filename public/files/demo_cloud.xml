@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <configuration>
   <file_info>
-    <info filename="demo_cloud.xml" guid="99f722c0-931f-4b7a-8f46-c0bac403c886" software="DXMConfigurationTool v3" timestamp="1/18/2019 1:51:00 PM" version="3.1.11.0" os="Win32NT" osversion="Microsoft Windows NT 6.2.9200.0" />
+    <info filename="demo_cloud.xml" guid="58b61e1a-1a51-4c99-a2d9-6ac6580f6d71" software="DXMConfigurationTool v3" timestamp="1/23/2019 2:48:16 PM" version="3.1.11.0" os="Win32NT" osversion="Microsoft Windows NT 6.2.9200.0" />
   </file_info>
   <local_regs>
     <reg cloudio="1" default="0" lcd="3" logfiles="8" mapEIP="0" num="1" scale_offset="0" scale_type="none" scale_using="0" timeout="0" unsigned="1" perms="3" units="None" numtype="None" name="Green" />

@@ -44,7 +44,8 @@ socket.on('chat message', function(msg){
             var c = document.getElementById("myCanvas");
             var ctx = c.getContext("2d");
 
-            c.style.zIndex= -1;
+            //c.style.zIndex= -1;
+            c.style.cssFloat = "left";
 
             ctx.canvas.width  = window.innerWidth-window.innerWidth/10;
             ctx.canvas.height = window.innerHeight-window.innerHeight/3;
