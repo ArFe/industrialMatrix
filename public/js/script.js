@@ -1,6 +1,7 @@
 const socket = io();
 let nodeNum;
 let dxmId;
+let running;
 
 function stopSS(){
     let node = document.querySelector("#node");
@@ -35,12 +36,13 @@ socket.on('chat message', function(msg){
     if(obj != null){
         dxmId = obj["id"];
         nodeNum = obj["reg6"];
+        running = obj["reg7"] == 1 ? " - Running" : " - Stopped";
         console.log("dxmID = " + dxmId)
         elem = document.querySelector("#"+dxmId);
         console.log("elem = " + elem)
         if (elem != null) {
             elem = document.querySelector("#nodeDisp");
-            elem.innerHTML = "Node " + nodeNum;
+            elem.innerHTML = "Node " + nodeNum + running;
             var c = document.getElementById("myCanvas");
             var ctx = c.getContext("2d");
 
