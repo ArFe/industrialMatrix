@@ -7,14 +7,16 @@ function stopSS(){
     let node = document.querySelector("#node");
     let id = document.querySelector(".id").id;
     var socket = io();
-    socket.emit('chat message', {'dxmId': id, 'nodeNum': node.options[node.selectedIndex].value, 'siteSurvey': 0});
+    let obj = {'dxmId': id, 'nodeNum': node.options[node.selectedIndex].value, 'siteSurvey': 0};
+    socket.emit('chat message', JSON.stringify(obj));
     return false;
 }
 function startSS(){
     let node = document.querySelector("#node");
     let id = document.querySelector(".id").id;
     var socket = io();
-    socket.emit('chat message', {'dxmId': id, 'nodeNum': node.options[node.selectedIndex].value, 'siteSurvey': 1});
+    let obj = {'dxmId': id, 'nodeNum': node.options[node.selectedIndex].value, 'siteSurvey': 1};
+    socket.emit('chat message', JSON.stringify(obj));
     return false;
 }
 socket.on('chat message', function(msg){

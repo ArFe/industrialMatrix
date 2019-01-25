@@ -101,10 +101,16 @@ app.get('/sitesurvey/:value', function(req, res){
 io.on('connection', function(socket){
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
-    console.log(msg);
+    //console.log(msg);
+    try{
+      msg = JSON.parse(msg);
+    } catch(err){
+      console.log("Error: " + err);
+      console.log("Msg not able to be parsed: " + msg);
+    }
     if(msg instanceof Object && 'dxmId' in msg){
       SSinfo.push(msg);
-      console.log("yes, I have dxmId property");
+      //console.log("yes, I have dxmId property");
     }
   });
 });
