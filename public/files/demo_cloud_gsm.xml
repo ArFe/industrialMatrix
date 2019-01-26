@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <configuration>
   <file_info>
-    <info filename="demo_cloud_gsm.xml" guid="0bef00bc-ce06-44aa-9fe9-293dbbf44517" software="DXMConfigurationTool v3" timestamp="1/25/2019 10:57:32 AM" version="3.1.11.0" os="Win32NT" osversion="Microsoft Windows NT 6.2.9200.0" />
+    <info filename="demo_cloud_gsm.xml" guid="10d35ee4-614e-4d79-9b4e-2edf7b3e1601" software="DXMConfigurationTool v3" timestamp="1/25/2019 10:47:38 PM" version="3.1.11.0" os="Win32NT" osversion="Microsoft Windows NT 6.2.9200.0" />
   </file_info>
   <local_regs>
     <reg cloudio="1" default="0" lcd="3" logfiles="8" mapEIP="0" num="1" scale_offset="0" scale_type="none" scale_using="0" timeout="0" unsigned="1" perms="3" units="None" numtype="None" name="Green" />
@@ -159,7 +159,7 @@
     </sms_recipient>
   </sms>
   <server_params>
-    <server apn="IP" apnpass="rogers-core-appl1.apn" cellenab="4" cellfw="0.0.0.0" cellfwmask="255.255.255.0" defaddr="10.4.5.200" defgtwy="10.4.5.1" defmask="255.255.255.0" dhcp="0" sms="0" />
+    <server apn="IP" apnpass="rogers-core-appl1.apn" cellenab="4" cellfw="0.0.0.0" cellfwmask="255.255.255.0" defaddr="192.168.0.1" defgtwy="192.168.0.254" defmask="255.255.255.0" dhcp="1" sms="0" />
     <maint csqbak="0" cexch="0" csqret="5" csrvwd="0" linkdel="60000" linkret="2" csflags="0" csrvre="0" ckeep="0" linkmax="120000" />
   </server_params>
   <http_push>

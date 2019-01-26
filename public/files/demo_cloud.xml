@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <configuration>
   <file_info>
-    <info filename="demo_cloud.xml" guid="c059c00c-14b2-4ce4-a36c-34dd4b2b20c7" software="DXMConfigurationTool v3" timestamp="1/25/2019 11:14:48 AM" version="3.1.11.0" os="Win32NT" osversion="Microsoft Windows NT 6.2.9200.0" />
+    <info filename="demo_cloud.xml" guid="82a7d4dd-1da5-4d0f-a45e-973975647ff1" software="DXMConfigurationTool v3" timestamp="1/25/2019 10:48:00 PM" version="3.1.11.0" os="Win32NT" osversion="Microsoft Windows NT 6.2.9200.0" />
   </file_info>
   <local_regs>
     <reg cloudio="1" default="0" lcd="3" logfiles="8" mapEIP="0" num="1" scale_offset="0" scale_type="none" scale_using="0" timeout="0" unsigned="1" perms="3" units="None" numtype="None" name="Green" />
@@ -159,7 +159,7 @@
     </sms_recipient>
   </sms>
   <server_params>
-    <server apn="" apnpass="" cellenab="0" cellfw="0.0.0.0" cellfwmask="255.255.255.0" defaddr="10.4.5.200" defgtwy="10.4.5.1" defmask="255.255.255.0" dhcp="0" sms="0" />
+    <server apn="" apnpass="" cellenab="0" cellfw="0.0.0.0" cellfwmask="255.255.255.0" defaddr="192.168.0.1" defgtwy="192.168.0.254" defmask="255.255.255.0" dhcp="1" sms="0" />
     <maint csqbak="0" cexch="0" csqret="5" csrvwd="0" linkdel="60000" linkret="2" csflags="0" csrvre="0" ckeep="0" linkmax="120000" />
   </server_params>
   <http_push>
