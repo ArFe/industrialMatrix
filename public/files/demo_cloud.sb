@@ -21,6 +21,7 @@ CONST RUNNING_ADR	= 7
 
 CONST TIME_ADR		= 851
 CONST MGAGE_TH		= 1000
+CONST REFRESH_TIME  = 300 'in seconds
 
 green 	= 0
 yellow 	= 0
@@ -56,10 +57,10 @@ FUNCTION writeData
 	WrErr = MULTISET (GREEN_ADR, 4, LocalSID, 0)
 	WrErr	= SETREG(RUNNING_ADR, running, LocalSID, 0)
 
-	if running = 1 and (TICKS - startTime) > 1500 then 
+	if running = 1 and (TICKS - startTime) > 500 then 
 		startTime = TICKS
 		PushNow = API(6)
-		'PRINT "PushNow ", PushNow, "\n\r"
+		PRINT "PushNow ", PushNow, "\n\r"
 	end if	
 
 end FUNCTION
